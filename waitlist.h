@@ -26,6 +26,26 @@ class WaitList{
 
         void load(std::istream& inF);
 
+        void add(Appointment a);
+
+        void display(std::ostream& outs);
+
+        Appointment find(std::string pName);
+
+        void remove(std::string patientname);
+
+        int waiting();
+
+        unsigned int longest_wait();
+
+        unsigned int average_wait();
+
+        int oldest();
+
+        int youngest();
+
+        int average_age();
+
         void save(std::ostream& outF);
 
 

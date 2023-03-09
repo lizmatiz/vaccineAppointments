@@ -61,24 +61,24 @@ int main(){
 			case '1':
 				cout << "Enter the appointment information.\n";
 				cin >> ap;
-				//pharmacy.add(ap);
+				pharmacy.add(ap);
 				break;
 
 			case '2':
-				//pharmacy.display(cout);
+				pharmacy.display(cout);
 				break;
 
 			case '3':
 				cout << "Enter the name of the person who is to be removed.\n ";
 				while(cin.peek() == '\n' || cin.peek() == '\r') cin.ignore();
 				getline(cin, patientname);
-				//ap = pharmacy.find(patientname);
+				ap = pharmacy.find(patientname);
 				if(ap != Appointment()){
 					cout << ap;
 					cout << "Do you want your remove this appointment request? (y/n)\n";
 					cin >> ch;
 					if(tolower(ch) == 'y'){
-						//pharmacy.remove(patientname);
+						pharmacy.remove(patientname);
 					}
 				}
 				else{
@@ -88,31 +88,31 @@ int main(){
 				break;
 
 			case '4':
-				//cout << "\nNumber waiting  = " << pharmacy.waiting() << endl << endl;
+				cout << "\nNumber waiting  = " << pharmacy.waiting() << endl << endl;
 				break;
 
 			case '5':
 				cout << "\nThe longest wait = ";
-				//convert_minutes(pharmacy.longest_wait());
+				convert_minutes(pharmacy.longest_wait());
 				cout << endl;
 				break;
 
 			case '6':
 				cout << "\nThe average wait time of all in line = ";
-				//convert_minutes(pharmacy.average_wait());
+				convert_minutes(pharmacy.average_wait());
 				cout << endl;
 				break;
 
 			case '7':
-				//cout << "\nThe oldest person in line is " << pharmacy.oldest() << " years old.\n\n";
+				cout << "\nThe oldest person in line is " << pharmacy.oldest() << " years old.\n\n";
 				break;
 
 			case '8':
-				//cout << "\nThe youngest person in line is " << pharmacy.youngest() << " years old.\n\n";
+				cout << "\nThe youngest person in line is " << pharmacy.youngest() << " years old.\n\n";
 				break;
 
 			case '9':
-				//cout << "\nThe average age of those in line is " << pharmacy.average_age() << " years old.\n\n";
+				cout << "\nThe average age of those in line is " << pharmacy.average_age() << " years old.\n\n";
 				break;
 
 			case '0':
@@ -124,9 +124,9 @@ int main(){
 				cout << "\nEnter the name of the person who is to be removed.\n ";
 				while(cin.peek() == '\n' || cin.peek() == '\r') cin.ignore();
 				getline(cin, patientname);
-				//apcopy.remove(patientname);
-				//apcopy.display(cout);
-				//cout << "Number waiting = " << apcopy.waiting() << endl << endl;
+				apcopy.remove(patientname);
+				apcopy.display(cout);
+				cout << "Number waiting = " << apcopy.waiting() << endl << endl;
 				break;
 			}  // copy goes out of scope
 
@@ -140,8 +140,7 @@ int main(){
 	// save data to a file
     fout.open(filename.c_str());
     if(!fout.fail())
-		//pharmacy.save(fout);
-		cout << "blah blah" << endl;
+		pharmacy.save(fout);
     else
 		cout << "Problem with saving data!\n";
     fout.close();
